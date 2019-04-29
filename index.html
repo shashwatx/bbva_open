@@ -100,6 +100,18 @@ curl -v -X POST \
 -H 'Authorization: jwt <access-token>'
 ```
 
+# Consumer API
+
+The following is based on the reading of the [official doc](https://bbvaopenplatform.com/docs/reference%7Capicontent%7Cconsumer-api-info) of BBVA Consumer API.
+
+To quote the official docs.
+> ...The primary function of this API is to create a consumer record for your customer so that they can use our Account Origination, Card Issuance and Move Money services. It also helps to verify the identity of your customer by taking their identifiable information and validating it across multiple data sources...
+
+| Env  | API URLs  | 
+| :------------ |:---------------|
+| Sandbox      | https://sbx-paas.bbvacompass.com/consumer/v3.0 |
+| Certification      | https://preprod-paas.bbvacompass.com/consumer/v3.0 |
+| Production | https://paas.bbvacompass.com/consumer/v3.0 |
 
 # Strapdown
 Misc examples with strapdown.
