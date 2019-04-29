@@ -1,24 +1,97 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"/><title>Notes on BBVA Open</title></head><body><xmp>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Notes on BBVA Open</title>
+    </head>
+    <body>
+        <!--
+        <topbar right style="display:none;">
+        <toc>Index</toc>
+        </topbar>
+        -->
+        <topbar left style="display:none;">
+        <item><a href="https://www.reddit.com">Project Home</a></item>
+        <menu name="Placeholder for other links">
+            <item><a href="https://www.reddit.com">Link #1</a></item>
+            <item><a href="https://www.reddit.com">Link #2</a></item>
+            <item><a href="https://www.reddit.com">Link #3</a></item>
+        </menu>
+        <toc>Index</toc>
+        </topbar>
+        
+    <textarea theme="united">
 
-## Introduction
+# Introduction
+a
 
-## Register and Create Sandbox
+# Authentication
+a
 
-## Authentication
-### Request auth tokens
-1. Through curl
+  ## Requesting Auth Tokens
+a
+
+1. Using **curl**
 ```
+curl -X POST \
+'https://sbx-paas.bbvacompass.com/auth/token?grant_type=client_credentials' \
+-H 'Accept: application/json' \
+-H 'Authorization: Basic ' \
+-H 'Cache-Control: no-cache' \
+-H 'Content-Type: application/json'
 ```
 
-## Strapdown Help
-</br>
-## Add Figure
-![Markdown](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Markdown 2")
-
-## Add Equation
+# Strapdown Help
+Misc examples with strapdown.
+  ## Add image
+    1. URL
 ```
-$$ \left( \sum\_{k=1}^n a\_k b\_k \right)^2 \leq \left( \sum\_{k=1}^n a\_k^2 \right) \left( \sum\_{k=1}^n b\_k^2 \right) $$
+![GA|Analytics](https://ga-beacon.appspot.com/UA-38514290-14/example2.html "Thanks to ga-beacon")
 ```
-$$ \left( \sum\_{k=1}^n a\_k b\_k \right)^2 \leq \left( \sum\_{k=1}^n a\_k^2 \right) \left( \sum\_{k=1}^n b\_k^2 \right) $$
+![GA|Analytics](https://ga-beacon.appspot.com/UA-38514290-14/example2.html "Thanks to ga-beacon")
+2. Local
+```
+![Logo Squirt](./.assets/images/logo.png "Logo Cthulhu")
+```
+![Logo Squirt](./.assets/images/logo.png "Logo Cthulhu")
+## Add table.
+1. latex
+```
+| Left-Aligned  | Center Aligned  | Right Aligned |
+| :------------ |:---------------:| -----:|
+| col 3 is      | some wordy text | $1600 |
+| col 2 is      | centered        |   $12 |
+| zebra stripes | are neat        |    $1 |
+```
+| Left-Aligned  | Center Aligned  | Right Aligned |
+| :------------ |:---------------:| -----:|
+| col 3 is      | some wordy text | $1600 |
+| col 2 is      | centered        |   $12 |
+| zebra stripes | are neat        |    $1 |
 
-</xmp><script type="text/javascript" src="./.assets/strapdown.min.js?mathjax=y&theme=cyborg"></script><script src="./.assets/strapdown-topbar.min.js"></script></body></html>
+## Add equation
+1. $\LaTex$ 1
+```
+$$P(E) = {n \choose k} p^k (1-p)^{n-k} $$
+```
+$$P(E) = {n \choose k} p^k (1-p)^{n-k} $$
+2. $\LaTex$ 2
+```
+$$\mathbf{V}\_1 \times \mathbf{V}\_2 =  \begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\\\
+\frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\\\
+\frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0
+\end{vmatrix}  $$
+```
+$$\mathbf{V}\_1 \times \mathbf{V}\_2 =  \begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\\\
+\frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\\\
+\frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0
+\end{vmatrix}  $$
+
+    </textarea>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Naereen/StrapDown.js@master/strapdown.min.js?mathjax=y&keepicon=n"></script>
+
+<script src=".assets/strapdown-topbar.min.js"></script>
+    </body></html>
