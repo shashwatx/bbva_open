@@ -27,20 +27,35 @@
 a
 
 # Authentication
-a
+This writup is based on a reading of the [official documentation](https://www.bbvaapimarket.com/documentation/compass/security) of BBVA Security API.
+
+To quote
+> _security API enables BBVA Clients to give an application consent to access BBVA Compass services on their behalf. In this API you will find detailed information about the services available to obtain tokens needed to call any service defined within API Market._
+
+| Key  | Value  | 
+| :------------ |:---------------|
+| Title      | Security API |
+| Version      | v1 |
+| Protocols | HTTP |
+| End Point (Sandbox) | ~~http://sandbox-apis.bbvacompass.com/auth~~ https://sbx-paas.bbvacompass.com/auth |
+| End Point (Live) | http://apis.bbvacompass.com/auth |
 
 ## Requesting Auth Tokens
-For security key of sample app see __.appkey__
+
 
 1. Using **curl**
 ```
-curl -X POST \
+curl -v -X POST \
 'https://sbx-paas.bbvacompass.com/auth/token?grant_type=client_credentials' \
+-H 'Authorization: Basic <base64(client_credentials)>' \
+-H 'Cache-Control: no-cache'
 -H 'Accept: application/json' \
--H 'Authorization: Basic ' \
--H 'Cache-Control: no-cache' \
 -H 'Content-Type: application/json'
 ```
+> __client credentials__ = _id:secret_ </br>
+> See _.appkey_ to find _id_ and _secret_ of our sample app.
+
+  
 
 # Strapdown Help
 Misc examples with strapdown.
