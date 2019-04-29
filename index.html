@@ -24,24 +24,39 @@
     <textarea theme="united">
 
 # Introduction
-a
+Some important links
 
-# Authentication
-This writup is based on a reading of the [official documentation](https://www.bbvaapimarket.com/documentation/compass/security) of BBVA Security API.
+* [Open Platform](https://bbvaopenplatform.com/content/home)</br>
+* [APIs Reference](https://bbvaopenplatform.com/docs/reference%7Capicontent%7Cwelcome-api-reference) </br>
+* [App Manager](https://bbvaopenplatform.com/appManager)
 
-To quote
-> _security API enables BBVA Clients to give an application consent to access BBVA Compass services on their behalf. In this API you will find detailed information about the services available to obtain tokens needed to call any service defined within API Market._
+An open platform app must first request an auth token via the OAuth API (previously known as Security API). The obtained token is subsequently used to access other (priviliged) APIs.
 
-| Key  | Value  | 
+To quote  the official documentation
+> _Open Platform apps require the use of two URLs: One to request an access token from the Open Platform OAuth API and one to access the different API endpoints._
+
+## Various API Endpoints
+The figure below shows the various api endpoints for Sandbox environment.
+![Various API Endpoints](.assets/all_api_endpoints.png "Various API Endpoints")
+> All API EndPoints
+
+## API Interdependence
+Some APIs are dependent on other APIs. 
+The figure below shows these dependence relations. 
+![Logo Squirt](.assets/api_dependencies.png "API Inter-Dependencies")
+> Inter-dependencies of APIs
+
+# OAuth API
+This following is based on a reading of the [official documentation](https://bbvaopenplatform.com/docs/reference%7Capicontent%7Capi-basics) of BBVA OAuth API.
+
+| Env  | API Endpoint  | 
 | :------------ |:---------------|
-| Title      | Security API |
-| Version      | v1 |
-| Protocols | HTTP |
-| End Point (Sandbox) | ~~http://sandbox-apis.bbvacompass.com/auth~~ https://sbx-paas.bbvacompass.com/auth |
-| End Point (Live) | http://apis.bbvacompass.com/auth |
+| Sandbox      | https://sbx-paas.bbvacompass.com/auth/token |
+| Certification      | https://preprod-paas.bbvacompass.com/auth/token |
+| Production | https://paas.bbvacompass.com/auth/tokens |
 
-## Requesting Auth Tokens
-
+The only key operation under OAuth API is to know how to get an auth token.
+## OAuth API : Request Access Token 
 
 1. Using **curl**
 ```
@@ -55,7 +70,7 @@ curl -v -X POST \
 > __client credentials__ = _id:secret_ </br>
 > See _.appkey_ to find _id_ and _secret_ of our sample app.
 
-  
+2. Using **python**
 
 # Strapdown Help
 Misc examples with strapdown.
