@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Notes on BBVA Open</title>
+        <link rel="shortcun icon" href=".assets/favicon.ico" />
     </head>
     <body>
         <!--
@@ -43,19 +44,30 @@ curl -X POST \
 
 # Strapdown Help
 Misc examples with strapdown.
-  ## Add image
-    1. URL
-```
+
+## Add image
+1. URL</br>
 ![GA|Analytics](https://ga-beacon.appspot.com/UA-38514290-14/example2.html "Thanks to ga-beacon")
 ```
 ![GA|Analytics](https://ga-beacon.appspot.com/UA-38514290-14/example2.html "Thanks to ga-beacon")
-2. Local
 ```
-![Logo Squirt](./.assets/images/logo.png "Logo Cthulhu")
+2. Local</br>
+![Logo Squirt](.assets/retiro.jpg "Parque Retiro Madrid")
+> Retiro Madrid
 ```
-![Logo Squirt](./.assets/images/logo.png "Logo Cthulhu")
+![Logo Squirt](.assets/retiro.jpg "Parque Retiro Madrid")
+```
+
 ## Add table.
-1. latex
+1. Simple table
+
+| Left-Aligned  | Center Aligned  | Right Aligned |
+| :------------ |:---------------:| -----:|
+| col 3 is      | some wordy text | $1600 |
+| col 2 is      | centered        |   $12 |
+| zebra stripes | are neat        |    $1 |
+> Tables can be customized
+
 ```
 | Left-Aligned  | Center Aligned  | Right Aligned |
 | :------------ |:---------------:| -----:|
@@ -63,20 +75,15 @@ Misc examples with strapdown.
 | col 2 is      | centered        |   $12 |
 | zebra stripes | are neat        |    $1 |
 ```
-| Left-Aligned  | Center Aligned  | Right Aligned |
-| :------------ |:---------------:| -----:|
-| col 3 is      | some wordy text | $1600 |
-| col 2 is      | centered        |   $12 |
-| zebra stripes | are neat        |    $1 |
+
 
 ## Add equation
-1. $\LaTex$ 1
-```
+1. Latex Eq 1
 $$P(E) = {n \choose k} p^k (1-p)^{n-k} $$
 ```
 $$P(E) = {n \choose k} p^k (1-p)^{n-k} $$
-2. $\LaTex$ 2
 ```
+2. Latex Eq 2
 $$\mathbf{V}\_1 \times \mathbf{V}\_2 =  \begin{vmatrix}
 \mathbf{i} & \mathbf{j} & \mathbf{k} \\\\
 \frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\\\
@@ -88,10 +95,11 @@ $$\mathbf{V}\_1 \times \mathbf{V}\_2 =  \begin{vmatrix}
 \frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\\\
 \frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0
 \end{vmatrix}  $$
+```
 
     </textarea>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Naereen/StrapDown.js@master/strapdown.min.js?mathjax=y&keepicon=n"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Naereen/StrapDown.js@master/strapdown.min.js?mathjax=y&keepicon=y"></script>
 
 <script src=".assets/strapdown-topbar.min.js"></script>
     </body></html>
