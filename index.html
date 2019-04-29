@@ -11,7 +11,7 @@
         <toc>Index</toc>
         </topbar>
         -->
-        <topbar left style="display:none;">
+        <topbar right style="display:none;">
         <item><a href="https://www.reddit.com">Project Home</a></item>
         <menu name="Placeholder for other links">
             <item><a href="https://www.reddit.com">Link #1</a></item>
@@ -36,16 +36,16 @@ An open platform app must first request an auth token via the OAuth API (previou
 To quote  the official documentation
 > _Open Platform apps require the use of two URLs: One to request an access token from the Open Platform OAuth API and one to access the different API endpoints._
 
-## Various API Endpoints
-The figure below shows the various api endpoints for Sandbox environment.
-![](.assets/all_api_endpoints.png "Various API Endpoints")
-> Untested...most likely has redaction errors.
-
-## API Interdependence
+## Introduction: API Interdependence
 Some APIs are dependent on other APIs. 
 The figure below shows these dependence relations. 
 ![40%](.assets/api_dependencies.png "API Inter-Dependencies" )
 > Inter-dependencies of APIs
+
+## Introduction: Various API URLs
+The figure below shows the various api endpoints for Sandbox environment.
+![](.assets/all_api_endpoints.png "Various API Endpoints")
+> Untested...most likely has redaction errors.
 
 
 
@@ -53,16 +53,19 @@ The figure below shows these dependence relations.
 # OAuth API
 This following is based on a reading of the [official documentation](https://bbvaopenplatform.com/docs/reference%7Capicontent%7Coauth-api-info) of BBVA OAuth API.
 
-| Env  | API Endpoint  | 
+| Env  | API URLs  | 
 | :------------ |:---------------|
-| Sandbox      | https://sbx-paas.bbvacompass.com/auth/token |
-| Certification      | https://preprod-paas.bbvacompass.com/auth/token |
-| Production | https://paas.bbvacompass.com/auth/tokens |
+| Sandbox      | https://sbx-paas.bbvacompass.com/auth |
+| Certification      | https://preprod-paas.bbvacompass.com/auth |
+| Production | https://paas.bbvacompass.com/auth |
 
-The only key operation under OAuth API is to know how to get an auth token.
-## OAuth API : Request Access Token 
+The are two key endpoints under the OAuth API.
 
-1. Using **curl**
+## OAuth API: Request Access Token _aka_ Login
+
+__EndPoint__: **/token**
+
+Example
 ```
 curl -v -X POST \
 'https://sbx-paas.bbvacompass.com/auth/token?grant_type=client_credentials' \
@@ -74,25 +77,47 @@ curl -v -X POST \
 > __client credentials__ = _id:secret_ </br>
 > See _.appkey_ to find _id_ and _secret_ of our sample app.
 
-2. Using **python**
+If successful, the POST request above returns a json with the following fields.
 
-# Strapdown Help
+| Key  | Description  | 
+| :------------ |:---------------|
+| access_token | Access token to call API services |
+| token_type | Security token type |
+| expires_in| TTL for this access token in seconds |
+| scope | Scopes granted for this access token |
+
+For more examples see [this](https://bbvaopenplatform.com/docs/reference%7Capiref%7Csecurity%7C~auth~token%7Cpost).
+
+
+## OAuth API: Invalidate Token _aka_ Logout
+
+__Endpoint__: **/management/logout**
+
+Example
+```
+curl -v -X POST \
+'https://sbx-paas.bbvacompass.com/auth/management/logout' \
+-H 'Authorization: jwt <access-token>'
+```
+
+
+# Strapdown
 Misc examples with strapdown.
 
-## Add image
-1. URL</br>
-![GA|Analytics](https://ga-beacon.appspot.com/UA-38514290-14/example2.html "Thanks to ga-beacon")
-```
-![GA|Analytics](https://ga-beacon.appspot.com/UA-38514290-14/example2.html "Thanks to ga-beacon")
-```
-2. Local</br>
+## Strapdown: Add image
+1. Local</br>
 ![Logo Squirt](.assets/retiro.jpg "Parque Retiro Madrid")
 > Retiro Madrid
 ```
 ![Logo Squirt](.assets/retiro.jpg "Parque Retiro Madrid")
 ```
+2. URL</br>
+![GA|Analytics](https://ga-beacon.appspot.com/UA-38514290-14/example2.html "Thanks to ga-beacon")
+```
+![GA|Analytics](https://ga-beacon.appspot.com/UA-38514290-14/example2.html "Thanks to ga-beacon")
+```
 
-## Add table.
+## Strapdown: Add table.
 1. Simple table
 
 | Left-Aligned  | Center Aligned  | Right Aligned |
@@ -100,7 +125,6 @@ Misc examples with strapdown.
 | col 3 is      | some wordy text | $1600 |
 | col 2 is      | centered        |   $12 |
 | zebra stripes | are neat        |    $1 |
-> Tables can be customized
 
 ```
 | Left-Aligned  | Center Aligned  | Right Aligned |
@@ -111,7 +135,7 @@ Misc examples with strapdown.
 ```
 
 
-## Add equation
+## Strapdown: Add equation
 1. Latex Eq 1
 $$P(E) = {n \choose k} p^k (1-p)^{n-k} $$
 ```
@@ -133,7 +157,10 @@ $$\mathbf{V}\_1 \times \mathbf{V}\_2 =  \begin{vmatrix}
 
     </textarea>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Naereen/StrapDown.js@master/strapdown.min.js?mathjax=y&keepicon=y"></script>
+    <!--<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Naereen/StrapDown.js@master/strapdown.min.js?mathjax=y&keepicon=y"></script>-->
+
+    <script src="http://strapdownjs.com/v/0.2/strapdown.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 <script src=".assets/strapdown-topbar.min.js"></script>
     </body></html>
